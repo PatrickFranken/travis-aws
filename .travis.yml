@@ -14,7 +14,7 @@ jobs:
         - ./aws_tasks.sh setup
 
       script:
-          - cat "Hello world" > ~/$TRAVIS_BUILD_NUMBER/hello_windows.txt
+          - echo "Hello world" > ~/$TRAVIS_BUILD_NUMBER/hello_windows.txt
 
       after_success:
         - ./aws_tasks.sh synchronize_up
