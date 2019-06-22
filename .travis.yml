@@ -1,0 +1,20 @@
+language: minimal
+
+env:
+  global:
+
+jobs:
+  include:
+    - os: windows
+      language: cpp
+
+      env:
+      before_install:
+        - mkdir -p ~/$TRAVIS_BUILD_NUMBER
+        - aws_tasks.sh setup
+
+      script:
+          - cat "Hello world" > ~/$TRAVIS_BUILD_NUMBER/hello_windows.txt
+
+      after_success:
+        - aws_tasks.sh synchronize_up
