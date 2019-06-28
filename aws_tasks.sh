@@ -7,6 +7,7 @@ function setup {
     x_aws_credentials
     x_aws_install
     x_aws_env
+    
 }
 
 function synchronize_down {
@@ -31,6 +32,7 @@ function x_aws_install {
             ;;
         windows*)
             choco install awscli
+            echo %PATH%
             # type "C:/ProgramData/chocolatey/logs/chocolatey.log"
             ;;
     esac
@@ -46,6 +48,7 @@ function x_aws_env {
             ;;
         windows*)
             export PATH="$PATH:$USERPROFILE/AppData/Local/Programs/Python/Python37/Scripts:C:/Program Files (x86)/Amazon/AWSCLI\bin"
+            echo %PATH%
             ;;
     esac
 }
