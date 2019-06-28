@@ -6,6 +6,7 @@
 function setup {
     x_aws_credentials
     x_aws_install
+    x_aws_env
 }
 
 function synchronize_down {
@@ -30,7 +31,6 @@ function x_aws_install {
             ;;
         windows*)
             choco install awscli
-            refreshenv
             # type "C:/ProgramData/chocolatey/logs/chocolatey.log"
             ;;
     esac
@@ -58,8 +58,6 @@ aws_access_key_id = ${AWS_ACCESS_KEY_ID}
 aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}
 EOL
 }
-
-x_aws_env
 
 echo "Running deploy task '$1' on $TRAVIS_OS_NAME ( $OSTYPE )"
 $1;
