@@ -32,7 +32,6 @@ function x_aws_install {
             ;;
         windows*)
             choco install awscli
-            which choco
             # type "C:/ProgramData/chocolatey/logs/chocolatey.log"
             ;;
     esac
@@ -47,7 +46,7 @@ function x_aws_env {
             export PATH=$HOME/Library/Python/3.7/bin:$PATH
             ;;
         windows*)
-            export PATH="$PATH:$USERPROFILE/AppData/Local/Programs/Python/Python37/Scripts:C:/Program Files (x86)/Amazon/AWSCLI/bin"
+            export PATH="$PATH:$USERPROFILE/AppData/Local/Programs/Python/Python37/Scripts:/c/Program Files (x86)/Amazon/AWSCLI/bin"
             echo $PATH
             ;;
     esac
