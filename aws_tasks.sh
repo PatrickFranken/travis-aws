@@ -11,15 +11,15 @@ function setup {
 }
 
 function synchronize_down {
-    /c/Program Files/Amazon/AWSCLI/bin/aws s3 sync s3://fritzing/"$TRAVIS_BUILD_NUMBER" "$HOME/$TRAVIS_BUILD_NUMBER"
+    "/c/Program Files/Amazon/AWSCLI/bin/aws" s3 sync s3://fritzing/"$TRAVIS_BUILD_NUMBER" "$HOME/$TRAVIS_BUILD_NUMBER"
 }
 
 function synchronize_up {
-    /c/Program Files/Amazon/AWSCLI/bin/aws s3 sync "$HOME/$TRAVIS_BUILD_NUMBER" s3://fritzing/"$TRAVIS_BUILD_NUMBER"
+    "/c/Program Files/Amazon/AWSCLI/bin/aws" s3 sync "$HOME/$TRAVIS_BUILD_NUMBER" s3://fritzing/"$TRAVIS_BUILD_NUMBER"
 }
 
 function cleanup {
-    /c/Program Files/Amazon/AWSCLI/bin/aws s3 rm --recursive s3://fritzing/"$TRAVIS_BUILD_NUMBER" # clean up after ourselves
+    "/c/Program Files/Amazon/AWSCLI/bin/aws" s3 rm --recursive s3://fritzing/"$TRAVIS_BUILD_NUMBER" # clean up after ourselves
 }
 
 function x_aws_install {
