@@ -33,6 +33,8 @@ function x_aws_install {
         windows*)
             choco install awscli
             echo $PATH
+            refreshenv
+            echo $PATH
             # type "C:/ProgramData/chocolatey/logs/chocolatey.log"
             ;;
     esac
